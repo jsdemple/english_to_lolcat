@@ -1,0 +1,124 @@
+import re
+import nltk
+from nltk import word_tokenize
+import random
+
+def eng_to_lol(word):
+    #syntactic adjustments
+    #To be added later...
+
+    #lexical replacements
+    word = re.sub(r'([oO]kay|OK|ok|Ok)', 'kthx,', word)
+    word = re.sub(r'Jesus', 'the babee jeesuz', word)
+    word = re.sub(r'[Ll]ight', 'lite', word)
+    word = re.sub(r'[Yy]ou\b', 'U', word)
+    word = re.sub(r'^dude$', 'd00d', word)
+    word = re.sub(r'cause', 'cuz', word)
+    word = re.sub(r'\b[tT]he\B', 'de', word)
+    word = re.sub(r'\band\b', 'n', word)
+    word = re.sub(r'\bby\b', 'bi', word)
+    word = re.sub(r'\ba\b', 'uh', word)
+    word = re.sub(r'new\b', 'nu', word)
+    word = re.sub(r'but', 'butt', word)
+    word = re.sub(r'that', 'dat', word)
+    word = re.sub(r'is', 'iz', word)
+    word = re.sub(r'[Hh]ave', 'haz', word)
+    word = re.sub(r'[Pp]ower', 'pwr', word)
+    word = re.sub(r'died', 'dedded', word)
+    word = re.sub(r'things', 'stuffs', word)
+    word = re.sub(r'there', 'tehre', word)
+    word = re.sub(r'(drugs?|alcohol|food)', 'catnipz,k?', word)
+    word = re.sub(r'[Ss]ex', 'secks', word)
+    word = re.sub(r'\bdo\b', 'be doin', word)
+    word = re.sub(r'[Ss]ome', 'sum', word)
+    word = re.sub(r'\b[tT]he\b', 'teh', word)
+    word = re.sub(r'\b[cC]ame\b', 'kaem', word)
+    word = re.sub(r'high\b', 'hi', word)
+    word = re.sub(r'dead', 'ded', word)
+    word = re.sub(r'\bevil\b', 'basement cat', word)
+    word = re.sub(r'women', 'womenz', word)
+    word = re.sub(r'\bmen\b', 'menz', word)
+    word = re.sub(r'people', 'peoplez', word)
+    word = re.sub(r'\bsay\b', 'sayz', word)
+    word = re.sub(r'\bam\b', 'are', word)
+    word = re.sub(r'\bcats\b', 'catz', word)
+    word = re.sub(r'(grumpy|\bmad\b|angry|sad)', 'Grumpycat', word)
+    word = re.sub(r'(creepy|stalker)', 'Ceilingcat', word)
+    word = re.sub(r'through', 'thru', word)
+    
+    #morphological replacements
+    word = re.sub(r'tion', 'shun', word)
+    word = re.sub(r'\Bion', 'un', word)
+    word = re.sub(r'ight\b', 'yte', word)
+    word = re.sub(r'er\b', 'r', word)
+    word = re.sub(r'\Bs\b', 'z', word)
+    word = re.sub(r'mate', 'mayt', word)
+    word = re.sub(r'ing\b', 'in', word)
+    word = re.sub(r'\Btt\B', 'dd', word)
+    word = re.sub(r'\B\B^ded\b', 't', word)
+    word = re.sub(r'ere\b', 'er', word)
+    word = re.sub(r'\B^ay\b', 'eh', word)
+    word = re.sub(r'dom\b', 'dum', word)
+    word = re.sub(r'ble', 'bul', word)
+    word = re.sub(r'ity\b', 'itee', word)
+    word = re.sub(r'rted', 'rtid', word)
+    word = re.sub(r'ered', 'erd', word)
+    word = re.sub(r'\Bade\b', 'aid', word)
+
+    #others
+    word = re.sub(r'ct', 'kt', word)
+    word = re.sub(r'corr', 'kerr', word)
+    word = re.sub(r'ays', 'aze', word)
+    word = re.sub(r'll', 'l', word)
+    word = re.sub(r'ie', 'ee', word)
+    word = re.sub(r'ext', 'extes', word)
+    word = re.sub(r'com', 'kom', word)
+    word = re.sub(r'oor', 'oar', word)
+    word = re.sub(r'^lite\b', 'yt', word)
+    word = re.sub(r'ire\b', 'iur', word)
+    word = re.sub(r'ea', 'ee', word)
+    word = re.sub(r'^ree\b', 'ea', word)
+    word = re.sub(r'oo', 'u', word)
+    word = re.sub(r'ain', 'ane', word)
+    word = re.sub(r'ord\b', 'urd', word)
+    word = re.sub(r'\Bone\b', 'oan', word)
+    word = re.sub(r'\Beral\b', 'erul', word)
+    word = re.sub(r'fore', 'for', word)
+    word = re.sub(r'\Bure\b', 'ur', word)
+    word = re.sub(r'\Bcle\b', 'kul', word)
+    word = re.sub(r'\Bourt\b', 'ort', word)
+    word = re.sub(r'ous\B', 'ouz', word)
+    word = re.sub(r'ate', 'ayte', word)
+    word = re.sub(r'\Bose\b', 'oze', word)
+    word = re.sub(r'laid', 'layd', word)
+    word = re.sub(r'rbed\b', 'rbd', word)
+    word = re.sub(r'pha', 'fa', word)
+    word = re.sub(r'oad\b', 'ode', word)
+    
+    #punctuation
+    word = re.sub(r'\!', '! kthx.', word)
+    word = re.sub(r'\?', '? .....', word)    
+    
+    return word
+
+discourse_markers = [" kthxbye."," So tehre."]
+
+def translate_eng_to_lol(text):
+    translated = ([eng_to_lol(word) for word in text])
+    translated = ' '.join(translated) + random.choice(discourse_markers)
+    return translated
+    
+"""Sample texts for translation"""
+sample = """Can I have. The LOLCat Bible Translation Project is a wiki-based website set up in July 2007 by Martin Grondin, where editors aim to parody the entire Bible in "LOLspeak", the slang popularized by the LOLcat Internet phenomenon.[1] The project relies on contributors to adapt passages. As of March 27, 2008, approximately 61% of the text had been adapted, and Grondin had stated that he hopes the entire New Testament would be complete by the end of 2008.[2]
+A book version of the website was released in 2010, containing selected extracts such as the stories of the creation of the earth, Adam and Eve, and Noah.[3]"""
+
+sample = """It was the best of times,
+it was the worst of times,
+it was the age of wisdom,
+it was the age of foolishness,
+it was the epoch of belief,
+it was the epoch of incredulity,
+it was the season of Light,
+it was the season of Darkness,
+it was the spring of hope,
+it was the winter of despair,"""
