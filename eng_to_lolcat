@@ -108,11 +108,14 @@ def translate_eng_to_lol(text):
     translated = ' '.join(translated) + random.choice(discourse_markers)
     return translated
     
+    
+    
 """Sample texts for translation"""
-sample = """Can I have. The LOLCat Bible Translation Project is a wiki-based website set up in July 2007 by Martin Grondin, where editors aim to parody the entire Bible in "LOLspeak", the slang popularized by the LOLcat Internet phenomenon.[1] The project relies on contributors to adapt passages. As of March 27, 2008, approximately 61% of the text had been adapted, and Grondin had stated that he hopes the entire New Testament would be complete by the end of 2008.[2]
+
+sample1 = """Can I have. The LOLCat Bible Translation Project is a wiki-based website set up in July 2007 by Martin Grondin, where editors aim to parody the entire Bible in "LOLspeak", the slang popularized by the LOLcat Internet phenomenon.[1] The project relies on contributors to adapt passages. As of March 27, 2008, approximately 61% of the text had been adapted, and Grondin had stated that he hopes the entire New Testament would be complete by the end of 2008.[2]
 A book version of the website was released in 2010, containing selected extracts such as the stories of the creation of the earth, Adam and Eve, and Noah.[3]"""
 
-sample = """It was the best of times,
+sample2 = """It was the best of times,
 it was the worst of times,
 it was the age of wisdom,
 it was the age of foolishness,
